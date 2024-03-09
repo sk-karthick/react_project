@@ -16,12 +16,12 @@
 .sidebar-head h1 {
     margin: 0;
     padding: 20px;
-    background-color: rgba(9, 249, 185, 0.774);
+    background-color: #39AEBC;
 }
 
 .sidebar-cont {
     height: 100%;
-    max-height: 85%;
+    max-height: 92%;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -29,7 +29,6 @@
     align-content: stretch;
     justify-content: space-between;
 }
-
 .schema-cont {
     padding: 10px 40px;
 }
@@ -39,11 +38,9 @@ select {
     width: 100%;
     padding: 10px;
 }
-
 .sidebar.open {
     right: 0;
 }
-
 .blue-box {
     margin-top: 20px;
 }
@@ -68,6 +65,17 @@ select {
 .announce-color p{
     margin: 0;
     padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.announce-color p svg{
+    font-size: 8px;
+    margin: 0px 10px;
+    color: green;
+}
+.announce-color p:last-child svg{
+    color: red;
 }
 .schema-in svg {
     font-size: 10px;
@@ -87,9 +95,9 @@ select {
 
 .blue-box button {
     background-color: #ddd;
-}
+}    
 .blue-box button svg{
-    width: 20px;
+    width: 30px;
     height: 20px;
 }
 .sidebar-save {
@@ -100,15 +108,21 @@ select {
 
 .sidebar-save button:first-child {
     padding: 13px 24px;
-    background-color: rgb(0 137 41 / 77%);
+    background-color: rgba(2, 135, 42, 0.77);
     color: #fff;
-    font-weight: 500;
+    font-weight: 600;
+    border-radius: 3px;
 }
-
 .sidebar-save button:last-child {
-    padding: 13px 24px;
+    padding: 13px 20px;
+    border-radius: 3px;
     color: red;
     background-color: #fff;
-    font-weight: 500;
-    margin-left: 30px;
+    font-weight: 600;
+    margin-left: 20px;
+}
+.add-schema{
+    background-color: transparent !important;
+    color: green;
+    border-bottom: 2px solid green;
 }

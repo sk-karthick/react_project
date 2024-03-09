@@ -3,6 +3,7 @@ import './App.css';
 import { IoIosArrowBack } from 'react-icons/io';
 import Sidebar from './components/Sidebar';
 import SchemaOption from './components/SchemaOption';
+import axios from 'axios';
 
 const App = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -11,7 +12,7 @@ const App = () => {
     { label: 'First Name', value: 'first_name' },
     { label: 'Account Name', value: 'account_name' }
   ]);
-  const [newSchemaIndex, setNewSchemaIndex] = useState(2); 
+  const [newSchemaIndex, setNewSchemaIndex] = useState(2);
 
   const schemaOptions = [
     { label: 'Last Name', value: 'last_name' },
@@ -29,9 +30,7 @@ const App = () => {
     let newSchema = null;
     if (newSchemaIndex < schemaOptions.length + 2) {
       newSchema = schemaOptions[newSchemaIndex - 2];
-      if (!selectedSchema.some(schema => schema.label === newSchema.label)) {
-        setSelectedSchema([...selectedSchema, newSchema]);
-      }
+      setSelectedSchema([...selectedSchema, newSchema]);
       setNewSchemaIndex(newSchemaIndex + 1);
     }
   };
@@ -43,16 +42,25 @@ const App = () => {
 
   const handleSaveSegment = () => {
     const formattedSchema = selectedSchema.map(schema => ({ [schema.value]: schema.label }));
-
+  
     const segment = {
       segment_name: segmentName,
       schema: formattedSchema
     };
-
+  
     console.log(segment);
+
+    axios.post('https://webhook.site/f75296a6-5f51-4a95-9d67-1bd537f1aa08', segment)
+      .then(response => {
+        console.log('Data sent successfully:', response.data);
+      })
+      .catch(error => {
+        console.error('Error sending data:', error.message);
+      });
 
     toggleSidebar();
   };
+  
 
   const handleCancel = () => {
     setSegmentName('');
@@ -62,12 +70,6 @@ const App = () => {
     ]);
     setNewSchemaIndex(2);
     toggleSidebar();
-  };
-
-  const handleSelectChange = (e, index) => {
-    const updatedSchema = [...selectedSchema];
-    updatedSchema[index].value = e.target.value;
-    setSelectedSchema(updatedSchema);
   };
 
   return (

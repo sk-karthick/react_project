@@ -4,7 +4,6 @@ import { IoIosArrowBack } from 'react-icons/io';
 import './Sidebar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
-
 const Sidebar = ({
     isSidebarOpen,
     segmentName,
@@ -33,15 +32,21 @@ const Sidebar = ({
                             <p>To save your segment, you need to add the schemas to build the query</p>
                         </div>
                         <div className='announce-color'>
-                            <p> <FontAwesomeIcon icon={faCircle} />User Traits</p>
-                            <p> <FontAwesomeIcon icon={faCircle} />Group Traits</p>
+                            <p> <FontAwesomeIcon icon={faCircle} />- User Traits</p>
+                            <p> <FontAwesomeIcon icon={faCircle} />- Group Traits</p>
                         </div>
                         <div className="blue-box">
-                            {selectedSchema.map((schema, index) => (
-                                <SchemaOption key={index} schema={schema} handleRemoveSchema={() => handleRemoveSchema(index)} handleSelectChange={handleSelectChange} />
+                            {selectedSchema && selectedSchema.map((schema, index) => (
+                                <SchemaOption
+                                    key={index}
+                                    schema={schema}
+                                    handleRemoveSchema={() => handleRemoveSchema(index)}
+                                    handleSelectChange={(e) => handleSelectChange(e, index)} 
+                                />
                             ))}
-                            <button onClick={handleAddSchema}>+ Add new schema</button>
+                            <button onClick={handleAddSchema} className='add-schema'>+ Add new schema</button>
                         </div>
+
                     </div>
                     <div className='sidebar-save'>
                         <button onClick={handleSaveSegment}>Save the Segment</button>
@@ -52,5 +57,6 @@ const Sidebar = ({
         )
     );
 };
+
 
 export default Sidebar;
