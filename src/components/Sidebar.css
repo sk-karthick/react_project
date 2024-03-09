@@ -1,0 +1,114 @@
+.sidebar {
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    right: 0;
+    position: fixed;
+    top: 0;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    transition: right 0.3s ease;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-head h1 {
+    margin: 0;
+    padding: 20px;
+    background-color: rgba(9, 249, 185, 0.774);
+}
+
+.sidebar-cont {
+    height: 100%;
+    max-height: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-between;
+}
+
+.schema-cont {
+    padding: 10px 40px;
+}
+
+.schema-cont input,
+select {
+    width: 100%;
+    padding: 10px;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.blue-box {
+    margin-top: 20px;
+}
+
+.schema-in {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+}
+
+.schema-in select {
+    width: 100%;
+    max-width: 80%;
+}
+.announce-color{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0;
+    margin: 0;
+}
+.announce-color p{
+    margin: 0;
+    padding: 0;
+}
+.schema-in svg {
+    font-size: 10px;
+}
+
+.schema-in svg:first-child {
+    color: green;
+}
+
+.schema-in svg:nth-child(2) {
+    color: red;
+}
+
+.blue-box select {
+    margin-bottom: 10px;
+}
+
+.blue-box button {
+    background-color: #ddd;
+}
+.blue-box button svg{
+    width: 20px;
+    height: 20px;
+}
+.sidebar-save {
+    background-color: #ddd;
+    height: 60px;
+    padding: 30px;
+}
+
+.sidebar-save button:first-child {
+    padding: 13px 24px;
+    background-color: rgb(0 137 41 / 77%);
+    color: #fff;
+    font-weight: 500;
+}
+
+.sidebar-save button:last-child {
+    padding: 13px 24px;
+    color: red;
+    background-color: #fff;
+    font-weight: 500;
+    margin-left: 30px;
+}
