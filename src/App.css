@@ -2,7 +2,7 @@
   width: 100%;
   float: left;
   position: relative;
-  background-color: rgba(9, 249, 185, 0.774); 
+  background-color: #226870; 
 }
 button{
   border: 0;
@@ -29,11 +29,13 @@ button{
 }
 .save-segment-button {
   background-color: transparent; 
+  position: absolute;
+  top:20%;
+  left: 10%;
   border: 2px solid #fff;
   color: #fff;
   padding: 10px 20px;
   cursor: pointer;
-  z-index: 2;
 }
 
 
